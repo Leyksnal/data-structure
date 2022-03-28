@@ -462,12 +462,60 @@
 // run(10)
 
 
-const recall =(n)=>{
-    if(n === 0){
-        return
+// const recall =(n)=>{
+//     if(n === 0){
+//         return
+//     }
+//     console.log(n)
+//     return recall(n-1)
+// }
+
+// console.log(recall(20))
+
+
+// const fib =(n)=>{
+//     if( n < 2){
+//         return 1
+//     }
+
+//     return fib(n - 1) + fib(n - 2)
+// }
+
+
+// console.log(fib(6))
+
+const memoFib =(index, array)=>{
+    array = array || []
+
+    if(array[index]){
+        array[index]
+    }else{
+        if(index < 2){
+            return 1
+        }else{
+            array[index] = memoFib(index - 1, array) + memoFib(index - 2, array)
+        }
     }
-    console.log(n)
-    return recall(n-1)
 }
 
-console.log(recall(20))
+console.log(memoFib(18))
+
+
+const harmless =(dataset, speechNote)=>{
+    let dataset = speechNote.split(" ")
+    let textdata = testNote.split(" ")
+
+    let dataObj = {}
+
+    dataset.forEach(( word )=>{
+        if(!dataObj[word]){
+            dataObj[word] = 0
+        }
+
+        dataObj[word]++
+    })
+
+    
+
+    return dataObj[word]
+}
